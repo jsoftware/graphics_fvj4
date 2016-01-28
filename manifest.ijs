@@ -15,7 +15,7 @@ LABCATEGORY=: 'Graphics'
 PLATFORMS=: 'win linux darwin'
 
 FILES=: 0 : 0
-/lif
+lif/
 automata.ijs
 blur.png
 chaotica.ijs
