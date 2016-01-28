@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 The FVJ4 package provides materials for Fractals, Visualization and J, 4th edition including scripts for simple winodws for plotting polygons, working with raster arrays, Also scripts for creating POV-Ray scenes, viewing automata, executing the Game of Life in color are included.
 )
 
-VERSION=: '1.0.1'
+VERSION=: '1.0.2'
 
 RELEASE=: 'j803 j804'
 
