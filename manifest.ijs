@@ -36,6 +36,6 @@ vlife.ijs
 )
 
 DEPENDS=: 0 : 0
-media/image_kit
+media/imagekit
 ide/qt
 )
