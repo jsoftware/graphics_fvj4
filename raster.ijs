@@ -4,7 +4,7 @@ NB. Script by Cliff Reiter for "Fractals, Visualization and J, 4th edition"
 NB. Last modifications made January 2016 for J8.04.
 coinsert 'jgl2 fvj4'
 require 'trig gl2'
-require '~addons/media/image_kit/image_kit.ijs'
+require '~addons/media/imagekit/imagekit.ijs'
 coclass 'fvj4'
 
 NB. Virtural Raster Array utilities begin here

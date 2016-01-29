@@ -1,10 +1,9 @@
-NB. Script chaotica3.ijs
+NB. Script chaotica.ijs
 NB. by Cliff Reiter for "Fractals, Visualization and J, 4th ed."
 NB. Last major update, July 2015
 NB. for J8.03
 require 'files numeric trig'
-NB. require '~addons/media/image3/html_gallery8.ijs'
-require '~addons/media/image_kit/image_kit.ijs'
+require '~addons/media/imagekit/imagekit.ijs'
 require '~addons/graphics/fvj4/raster.ijs'
 
 NB. Sets random seed randomly

@@ -1,4 +1,4 @@
-NB.  Script dwin2.ijs
+NB.  Script dwin.ijs
 NB.  Functions for Windows based object graphics from J
 NB.  by Cliff Reiter for "Fractals, Visualization and J, 4th edition"
 NB.  Last modifications made Feb 2015. 

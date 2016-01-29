@@ -4,7 +4,7 @@ NB. October 2005
 NB. January 2007 update for J601
 NB. August 2015 update for J804 and FVJ4
 coinsert 'fvj4'
-require '~addons/media/image_kit/html_gallery.ijs'
+require '~addons/media/imagekit/html_gallery.ijs'
 require '~addons/graphics/fvj4/raster.ijs'
 coclass 'fvj4'
 

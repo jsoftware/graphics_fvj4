@@ -7,7 +7,7 @@ NB. January 2007 update to J6.01c
 
 coinsert 'jgl2 vclife'     NB. locale for vlife.ijs script definitions
 require 'gl2 files'
-require '~addons/media/image_kit/image_kit.ijs'
+require '~addons/media/imagekit/imagekit.ijs'
 coclass 'vclife'
 
 NB. defaults
