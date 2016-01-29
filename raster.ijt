@@ -6,7 +6,7 @@ Lafayette College
 Easton, PA 18042 USA
 reiterc@lafayette.edu
 )
-LABCOMMENTS=: 'Meant to give sample useage for raster.ijs which is a script designed for use with the 4th edition of Fractals, Visualization and J (part 1) and the media/image_kit addon.'
+LABCOMMENTS=: 'Meant to give sample useage for raster.ijs which is a script designed for use with the 4th edition of Fractals, Visualization and J (part 1) and the media/imagekit addon.'
 LABFOCUS=: 0
 
 NB. =========================================================
