@@ -5,6 +5,7 @@ NB. for J8.03
 require 'files numeric trig'
 require '~addons/media/imagekit/imagekit.ijs'
 require '~addons/graphics/fvj4/raster.ijs'
+coclass 'fvj4'
 
 NB. Sets random seed randomly
 randomize ''
@@ -63,6 +64,9 @@ Lexp=:1 : 0 ("1)
 avg {:"2 u ippp^:((+i.)/x) y,(=i.#y),1
 )
 
+NB. Two variable henon map
+henon=: ({:+1:-1.4 * *:@{.),0.3*{.
+
 NB. ------------------------------------------------
 NB.* Lmin n Minimum acceptable Ljapunov exponent
 NB. likewise Lmax
@@ -112,14 +116,16 @@ while. k < x do.
     if. {.full=.fullness VRA do.
       (P254;|.cln254 VRA) write_image y,(nfmt k),'.png'
       fname=:'f',(short_fn y),nfmt k
-      (fname)=:f f.
-      (scriptform fname) fappends y,'.ijs'
+      (LF,~s=.fname,'=:',5!:5<'f') fappends y,'.ijs'
+      ".s
       k=.>:k
     end.
   catch.
     full=.0 _1
   end.
   smoutput 'k: ',(":k),' ful: ',(":}.full),' L: ',":L
+  wd 'msgs'
+  if. fexist y,'.break' do. return. end.
 end.  
 k
 )
@@ -132,6 +138,12 @@ NB. Inverse arrayread also exists
 arraywrite=:(3!:1)@[ fwrite ]
 arrayread=: (3!:2)@fread
 
+NB. y is a literal list of J names.
+NB. to_script_form y
+to_script_form=:3 : 0
+;(,&.>  <@:('=:'&,)@(,&LF)@(5!:5)"0) ;:y
+)
+
 NB. ------------------------------------------------
 NB.* ca_hr v Create a high resolution attractor
 NB. Image of attractor f is created and frequency table/seed stored
@@ -139,7 +151,7 @@ NB. in a form suitable for subsequent enhancement
 NB. x is number of preiterates and iterations to use 
 NB. y is the filename prefix
 ca_hr=:3 : 0
-10000 100000 ca_hr y
+10000 1000000 ca_hr y
 :
 'preiter numiter'=.x
 xy=.f^:(preiter+i.numiter) 0.2 0.3
@@ -148,7 +160,7 @@ seed=:{:xy
 win vwin 0
 vfpixel xy
 f=:f f.
-(scriptform 'f seed VRAWH win') fwrites y,'.ijs'
+(to_script_form 'f seed VRAWH win') fwrites y,'.ijs'
 VRA arraywrite y,'.vra'
 (P254;|.cln254 VRA) write_image y,'.png'
 )
@@ -158,7 +170,7 @@ NB.* ca_hr_add v Make additions to a Chaotic Attractor
 NB. x is number of repetitions and iterations to use 
 NB. y is the filename prefix
 ca_hr_add=:3 : 0"1"1 _
-100 100000 ca_hr_add y
+19 1000000 ca_hr_add y
 :
 'reps numiter'=.x
 0!:0< y,'.ijs'
@@ -171,7 +183,7 @@ while. k<reps   do.
   vfpixel xy
   k=.k+1
 end.
-(scriptform 'f seed VRAWH win') fwrites y,'.ijs'
+(to_script_form 'f seed VRAWH win') fwrites y,'.ijs'
 VRA arraywrite y,'.vra'
 (P254;|.cln254 VRA) write_image y,'.png'
 )
@@ -190,17 +202,21 @@ max=.>./@,y
 (y>0)*1+<.(253.999%max-1)*y-1
 )
 NB. ------------------------------------------------
-NB.* cln254 v Gives log-bias cummulative discretization  
+NB. cln254 v Gives log-bias cummulative discretization  
+NB. cln254=:3 : 0
+NB.  o=./:~ ,y
+NB.  m=.(}.~:}:) o
+NB.  p=.I. m,1
+NB.  n=.p{o
+NB.  ($y)$(n i. ,y){ 0 , >:@<.@(253.99&*)@(+/\ % +/)@:^.@(}.-}:) p
+NB.)
 cln254=:3 : 0
-  o=./:~ ,y
-  m=.(}.~:}:) o
-  p=.I. m,1
-  n=.p{o
-  ($y)$(n i. ,y){ 0 , >:@<.@(253.99&*)@(+/\ % +/)@:^.@ (}.-}:) p
+'n f'=.|:({.,#)/.~ /:~0,~,y
+($y)$(n i. ,y){ 0 , >:@<.@(253.99&*)@(+/\ % +/)@:^. }.f
 )
 
 NB. ------------------------------------------------
-NB.* mkrandP a Make a random polynomial; see P early in script
+NB. mkrandP a Make a random polynomial; see P early in script
 mkrandP=:1 : '(_1.5 1.5 randunif 2 3 3) P'
 
 NB. ------------------------------------------------
@@ -455,3 +471,4 @@ winsqfor=: _0.5 _0.5 0.5 0.5"_
 
 mkrandsqfor=: 2 : ' m mkrandDFc 0 sqforcon (CD n)'
 
+coclass 'base'

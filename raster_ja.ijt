@@ -14,7 +14,7 @@ Lab Section Introduction
 This lab introduces the main utilities in the script
 raster.ijs which is for use with the book Fractals, Visualization and J, 3rd edition. It is assumed that script is available in the subdirectory of the J addon directory called graphics/fvj3 and that the media/image3 addon is available. If you stored the script in another directory, load it before continuing. Note that routine image i/o is easier done directly with the image addon and it has its own labs.
 )
-load  '~addons/graphics/fvj4/raster.ijs'
+load  '~addons/graphics/fvj4/raster_ja.ijs'
 
 NB. =========================================================
 Lab Section A white and black image of an array
