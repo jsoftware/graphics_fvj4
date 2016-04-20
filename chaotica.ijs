@@ -4,7 +4,9 @@ NB. Last major update, July 2015
 NB. for J8.03
 require 'files numeric trig'
 require '~addons/media/imagekit/imagekit.ijs'
-require '~addons/graphics/fvj4/raster.ijs'
+IFJA_z_=: (IFJA"_)^:(0=4!:0<'IFJA')0
+require^:(-.IFJA) '~addons/graphics/fvj4/raster.ijs'
+require^:IFJA '~addons/graphics/fvj4/raster_ja.ijs'
 coclass 'fvj4'
 
 NB. Sets random seed randomly

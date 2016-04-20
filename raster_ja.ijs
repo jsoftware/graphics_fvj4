@@ -7,7 +7,7 @@ require '~addons/media/imagekit/imagekit.ijs'
 coclass 'fvj4'
 coinsert 'trig jgl2 mkit'
 
-IFJA=: (IFJA"_)^:(0=4!:0<'IFJA')0
+IFJA_z_=: (IFJA"_)^:(0=4!:0<'IFJA')0
 
 NB. Virtural Raster Array utilities begin here
 

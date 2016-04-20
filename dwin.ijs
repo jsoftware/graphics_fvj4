@@ -6,7 +6,7 @@ require 'trig gl2'
 coclass 'fvj4'
 coinsert 'trig jgl2 mkit'
 
-IFJA=: (IFJA"_)^:(0=4!:0<'IFJA')0
+IFJA_z_=: (IFJA"_)^:(0=4!:0<'IFJA')0
 
 NB. ------------------------------------------------
 NB. setWIN_WH v Sets the shape of the graphics window

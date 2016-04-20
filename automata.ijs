@@ -5,7 +5,9 @@ NB. January 2007 update for J601
 NB. August 2015 update for J804 and FVJ4
 coinsert 'fvj4'
 require '~addons/media/imagekit/html_gallery.ijs'
-require '~addons/graphics/fvj4/raster.ijs'
+IFJA_z_=: (IFJA"_)^:(0=4!:0<'IFJA')0
+require^:(-.IFJA) '~addons/graphics/fvj4/raster.ijs'
+require^:IFJA '~addons/graphics/fvj4/raster_ja.ijs'
 coclass 'fvj4'
 
 NB. Section 7.1

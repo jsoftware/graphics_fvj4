@@ -1,7 +1,9 @@
 NB. complex.ijs
 NB. Utilities for complex dynamics
 
-require '~addons/graphics/fvj4/raster.ijs'
+IFJA_z_=: (IFJA"_)^:(0=4!:0<'IFJA')0
+require^:(-.IFJA) '~addons/graphics/fvj4/raster.ijs'
+require^:IFJA '~addons/graphics/fvj4/raster_ja.ijs'
 
 NB. Escape time for complex iteration
 NB. u is the function
