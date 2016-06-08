@@ -12,7 +12,7 @@ NB. =========================================================
 Lab Section Object window script
 This lab offers an overview of some of the facilities in the script dwin.ijs associated with the 4th edition of the book Fractals, Visualization and J. These object windows require the JQT/JAndroid interface. They are primitive but are sufficient for experimenting with polygons and transformations. 
 )
-load '~addons/graphics/fvj4/dwin.ijs'
+load '~addons/graphics/fvj4/dwin_ja.ijs'
 
 NB. =========================================================
 Lab Section First plots

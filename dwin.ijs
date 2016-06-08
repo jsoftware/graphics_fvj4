@@ -3,8 +3,8 @@ NB.  Functions for Windows based object graphics from J
 NB.  by Cliff Reiter for "Fractals, Visualization and J, 4th edition"
 NB.  Last modifications made Feb 2015. 
 require 'trig gl2'
+coinsert 'trig jgl2 mkit fvj4'
 coclass 'fvj4'
-coinsert 'trig jgl2 mkit'
 
 IFJA_z_=: (IFJA"_)^:(0=4!:0<'IFJA')0
 
@@ -309,7 +309,7 @@ NB. 90 degrees around the x-axis.
 NB. Analagous functions roty and rotz are also defined.
 rotx=:(1:,0:,0:,0:),(0:,cos , sin,0:),(0:,-@sin,cos,0:),:(0:,0:,0:,1:)
 roty=:(cos , 0:,sin,0:),(0:,1:,0:,0:),(-@sin,0: ,cos,0:),:(0:,0:,0:,1:)
-rotz=:(cos , sin, 0:,0:),(-@sin,cos,0:,0:),(0:,0:,1:,0:),:(0:,0:,0:,1:)
+rotz=:(cos , sin, 0,0:),(-@sin,cos,0,0:),(0 0 1 0),:(0 0 0,1:)
 
 coclass 'base'
 
@@ -515,14 +515,4 @@ wd z,';pshow;'
 glclear''
 )
 
-NB. export to z locale
-3 : 0''
-wrds=. 'PEN_style SETAXES SETVPP VPP VPPXYZ VPZ'
-wrds=. wrds, ' d3apoly d3awin d3poly d3win dapoly dawin'
-wrds=. wrds, ' dclear dfillcolor dline dpixel dpoly'
-wrds=. wrds, ' dwin rotx roty rotz setWIN_WH'
-wrds=. > ;: wrds
-cl=. '_fvj4_'
-". (wrds ,"1 '_z_ =: ',"1 wrds ,"1 cl) -."1 ' '
-EMPTY
-)
+coclass 'base'
