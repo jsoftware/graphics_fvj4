@@ -5,6 +5,8 @@ NB. by Cliff Reiter
 NB. Last updated 2015
 
 require 'files'
+coinsert 'fvj4'
+coclass 'fvj4'
 
 NB. ------------------------------------------------
 NB.* view_pars_sample n Sample viewing parameters
@@ -281,6 +283,48 @@ yellow_plane=:0 : 0
 object{plane{<0,0,1>,0} texture{pigment{rgb<1,1,0>}}}
 )
 
+NB. view parameters for 3d cyclic cellular automata
+view_pars_cca3d=:0 : 0
+camera{
+location <40,60,40>
+angle 2.2
+up <0,0,1>
+right <0,1,0>
+sky <0,0,1>
+look_at<0,0,0>
+      }
+#default{finish{ambient 0.35}}
+object{light_source{<200,100,80> color rgb<2,2,2>}}
+background {color rgb<1,1,1>}
+)
+
+NB. view specified states in pov file
+cca3d_pov=:1 : 0
+:
+colors=.Hue1 5r6*(i.%<:)#x
+view_pars_cca3d fwrite y
+'s0 s1 s2'=.$m
+dx=.2%>./$m
+xyz=.,/,/_1+dx*(i.s0) ,"0 1/ (i.s1),"0/i.s2
+for_k. i.#x do.
+  M=.,m=k{x
+  ((k{colors)fmtbox (, dx&+)"1 M#xyz)fappends y
+end.  
+fsize y
+)
+
+NB. For replicating a 0-1 cube data into 2 by 2 by 2
+NB. repetitions. For chaotic attractors in 3D
+pov222=:2 : 0
+0.01 m pov222 n y
+:
+view_pars_menger fwrite y
+for_dx. _1+2 2 2#:i.8 do.
+  (m fmtsph (n+"1 dx),.x)fappends y
+end.
+fsize y
+)
+
 NB. Section of basic formatting utilities
 
 NB. ------------------------------------------------
@@ -401,3 +445,4 @@ NB. ------------------------------------------------
 NB.* hue1 v function to create hues on 0-1 scale
 Hue1=:((((i.7)%6);|."1#:7|3^i.7)&pwlin)"0 f.
 
+coclass 'base'

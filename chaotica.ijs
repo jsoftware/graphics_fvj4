@@ -1,6 +1,6 @@
 NB. Script chaotica.ijs
 NB. by Cliff Reiter for "Fractals, Visualization and J, 4th ed."
-NB. Last major update, July 2015
+NB. Last major update, June 2016
 NB. for J8.03
 require 'files numeric trig'
 require '~addons/media/imagekit/imagekit.ijs'
@@ -472,5 +472,29 @@ mp=.(+/ . *)"1 2
 winsqfor=: _0.5 _0.5 0.5 0.5"_
 
 mkrandsqfor=: 2 : ' m mkrandDFc 0 sqforcon (CD n)'
+
+NB. 10.6 Lorenz Attractor
+
+NB. Lorenz attractor with general parameters
+LZ=: 1 : 0
+'S B R'=.m
+M=.((-S),S,0 0 0),(R,_1 0 0 _1),:0 0,(-B),1 0
+M&(+/ . *)@(],{.*}.)
+)
+
+NB. classic parameters
+lz=:(10,(8%3),28) LZ
+
+NB. classic Runge-Kutta 4th order
+RK=: 1 : 0
+:
+h2=.x%2
+k1=.u y
+k2=.u y+h2*k1
+k3=.u y+h2*k2
+k4=.u y+x*k3
+y+(x%6)*k1+k4++:k2+k3
+)
+
 
 coclass 'base'
