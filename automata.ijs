@@ -1,8 +1,9 @@
 NB. Script automata.ijs
-NB. by Cliff Reiter for "Fractals, Visualization and J, 3rd ed. in works"
+NB. by Cliff Reiter for "Fractals, Visualization and J"
 NB. October 2005
 NB. January 2007 update for J601
 NB. August 2015 update for J804 and FVJ4
+NB. March 2017 update for J805 and FVJ4 Part2
 coinsert 'fvj4'
 require '~addons/media/imagekit/html_gallery.ijs'
 IFJA_z_=: (IFJA"_)^:(0=4!:0<'IFJA')0
@@ -102,6 +103,7 @@ y=.|.y
 for. i. maxit do.
   VRA=:m0 spix <.255*y
   vfshow ''
+  wd'msgs'
   y=.u y
   6!:3 delay 
 end.
@@ -182,6 +184,7 @@ while. k<maxiter do.
   y=. u y
   VRA=:2 spix rows{rot 2 spix (2#hxSZ)$ <.y*255
   vfshow ''
+  wd'msgs'
   6!:3 delay
   k=.k+1
 end.

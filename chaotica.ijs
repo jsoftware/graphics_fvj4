@@ -3,7 +3,7 @@ NB. by Cliff Reiter for "Fractals, Visualization and J, 4th ed."
 NB. Last major update, June 2016
 NB. for J8.03
 require 'files numeric trig'
-require '~addons/media/imagekit/imagekit.ijs'
+require '~addons/media/imagekit/html_gallery.ijs'
 IFJA_z_=: (IFJA"_)^:(0=4!:0<'IFJA')0
 require^:(-.IFJA) '~addons/graphics/fvj4/raster.ijs'
 require^:IFJA '~addons/graphics/fvj4/raster_ja.ijs'
@@ -26,6 +26,7 @@ while. k<#y do.
   lam=.k{y
   vfpixel lam ,. lam lg^:(1000+i.10000) 0.1
   vfshow ''
+  wd 'msgs'
   k=.k+1
 end.
 )
@@ -349,13 +350,13 @@ winfrz=: 3 : ',0 1 ,._1 1 *1.05*>./|{:"1 y'
 
 fullfrz=: 3 : '((#=+/),+/)+./*y'
 
-tile_pal_image=: 3 : 0"1
-2 2 tile_pal_image y
+tile_image=:3 : 0"1
+2 2 tile_image y
 :
-'p b'=.pal_read y
-'r s'=.<.x * $ b
-b=.s$"1 r$b
-(p;b)write_image y
+b=.read_image y
+'r s'=.<.x * 2{.$ b
+b=.s$"_1 r$b
+b write_image y
 )
 
 prods2=:  (\:*)@prods
