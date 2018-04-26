@@ -8,7 +8,9 @@ The FVJ4 package provides materials for Fractals, Visualization and J, 4th editi
 
 VERSION=: '1.0.17'
 
-RELEASE=: 'j803 j804 j805 j806 j807'
+RELEASE=: ''
+
+FOLDER=: 'graphics/fvj4'
 
 LABCATEGORY=: 'Graphics'
 
